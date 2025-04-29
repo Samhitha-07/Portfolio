@@ -23,8 +23,20 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Enhanced CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://portfolio-5k3f.vercel.app'
+];
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Your frontend URL
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['POST', 'OPTIONS'],
   credentials: true
 }));

@@ -1,0 +1,57 @@
+[
+    {
+      "title": "Real-Time Twitter Sentiment Analysis",
+      "description": "Built a real-time sentiment analysis pipeline using Azure Event Hub, Apache Kafka, and Spark.",
+      "tech": ["Azure", "Kafka", "Spark", "Power BI"],
+      "github": "https://github.com/yourusername/project1",
+      "demo": "https://yourprojectdemo.com",
+      "image": "/assets/white.png",
+      "category": "Data Analyst"
+    },
+    {
+      "title": "Speech Emotion Recognition",
+      "description": "Compared SVM and DCNN models for detecting emotions from speech using the SAVEE dataset.",
+      "tech": ["Python", "TensorFlow", "OpenSMILE"],
+      "github": "https://github.com/yourusername/project2",
+      "demo": "https://yourprojectdemo.com",
+      "image": "/assets/white.png",
+      "category": "ML-DL"
+    },
+    {
+      "title": "LLM-based Chatbot",
+      "description": "Built a chatbot using RAG techniques with LangChain and OpenAI models.",
+      "tech": ["LangChain", "FAISS", "OpenAI"],
+      "github": "https://github.com/yourusername/project3",
+      "demo": "https://yourprojectdemo.com",
+      "image": "/assets/white.png",
+      "category": "LLM-RAG"
+    },
+    {
+        "title": "LLM-based Chatbot",
+        "description": "Built a chatbot using RAG techniques with LangChain and OpenAI models.",
+        "tech": ["LangChain", "FAISS", "OpenAI"],
+        "github": "https://github.com/yourusername/project3",
+        "demo": "https://yourprojectdemo.com",
+        "image": "/assets/white.png",
+        "category": "LLM-RAG"
+    },
+    {
+      "title": "Personal Portfolio Website",
+      "description": "Designed and developed a soft pastel-themed portfolio website using Next.js and Tailwind CSS.",
+      "tech": ["Next.js", "Tailwind CSS", "Framer Motion"],
+      "github": "https://github.com/yourusername/project4",
+      "demo": "https://yourprojectdemo.com",
+      "image": "/assets/white.png",
+      "category": "Web Design"
+    },
+    {
+        "title": "Personal Portfolio Website",
+        "description": "Designed and developed a soft pastel-themed portfolio website using Next.js and Tailwind CSS.",
+        "tech": ["Next.js", "Tailwind CSS", "Framer Motion"],
+        "github": "https://github.com/yourusername/project4",
+        "demo": "https://yourprojectdemo.com",
+        "image": "/assets/white.png",
+        "category": "Web Design"
+    }
+  ]
+  

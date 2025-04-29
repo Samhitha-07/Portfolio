@@ -30,7 +30,7 @@ const About = () => {
   return (
     <motion.div
       id="about"
-      className="w-full h-fit lg:h-fit bg-black px-6 py-4 lg:py-4 xl:py-6 rounded-2xl grid grid-cols-1 lg:grid-cols-3 gap-6 font-code"
+      className="w-full h-fit lg:h-fit bg-black px-6 py-10 mt-4 lg:py-10 xl:py-10 rounded-2xl grid grid-cols-1 lg:grid-cols-3 gap-6 font-code"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"

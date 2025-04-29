@@ -7,13 +7,13 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8 space-y-6"> {/* Reduced space-y */}
 
         {/* Main Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-black/85 inline">
-          Let's Talk <span className="text-4xl sm:text-5xl md:text-6xl text-orange-400">!</span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-black/85 text-center">
+          Let's Talk <span className="text-6xl sm:text-7xl md:text-8xl text-orange-400 mb-4">.</span>
         </h2>
 
 
         {/* Pill Boxes with Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-16 gap-6"> {/* Reduced gap */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mt-12 gap-6"> {/* Reduced gap */}
           
           {/* Email */}
           <div className="p-2 space-y-6"> {/* Reduced space-y */}

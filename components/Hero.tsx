@@ -6,10 +6,10 @@ import { Typewriter } from 'react-simple-typewriter';
 const Hero = () => {
   return (
     <div 
-      id="hero"
-      className="flex flex-col items-center justify-center pt-6 sm:pt-20 min-h-screen px-4 pb-6 bg-white">
+    id = "hero"
+    className="flex flex-col items-center justify-center pt-3 sm:pt-30 min-h-screen px-4 pb-4 bg-white">
       {/* Spline Model */}
-      <div className="w-full max-w-7xl h-[300px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] flex justify-center">
+      <div className="w-full max-w-7xl h-[300px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[800px] flex justify-center">
         <iframe
           src="https://my.spline.design/cutecomputerfollowcursor-sMF9a51cqeEHDAMej8v6rKXN/"
           className="rounded-lg shadow-lg"
@@ -19,8 +19,8 @@ const Hero = () => {
       </div>
 
       {/* Animated Text */}
-      <div className="text-center max-w-4xl mt-4">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-2 leading-relaxed">
+      <div className="text-center max-w-4xl">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 leading-relaxed">
           <Typewriter
             words={[
               "Hi, I'm Samhitha",
@@ -38,7 +38,7 @@ const Hero = () => {
             delaySpeed={2000}
           />
         </h1>
-        <p className="text-2xl sm:text-2xl lg:text-4xl font-bold text-orange-400 mb-4">
+        <p className="text-2xl sm:text-2xl lg:text-4xl font-bold  text-orange-400">
           AI-ML Developer
         </p>
       </div>

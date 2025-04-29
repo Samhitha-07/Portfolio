@@ -30,7 +30,7 @@ const Contact = () => {
       } else {
         setStatus('Something went wrong. Please try again.');
       }
-    } catch (_error) {
+    } catch {
       setStatus('Error sending message. Please try again.');
     }
   };
@@ -56,7 +56,7 @@ const Contact = () => {
 
           {/* Right Column: Contact Form */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold ">Let&apos;s work together!</h3>
+            <h3 className="text-2xl font-semibold">Let&apos;s work together!</h3>
             <p className="text-lg">
               Feel free to reach out for collaborations, inquiries, or just to say hi! I would love to hear from you.
             </p>

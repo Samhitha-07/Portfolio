@@ -8,7 +8,7 @@ const Footer = () => {
 
         {/* Main Heading */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-black/85 text-center">
-          Let's Talk <span className="text-6xl sm:text-7xl md:text-8xl text-orange-400 mb-4">.</span>
+        Let&apos;s Talk <span className="text-6xl sm:text-7xl md:text-8xl text-orange-400 mb-4">.</span>
         </h2>
 
 

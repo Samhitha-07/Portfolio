@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Code, BookOpenCheck, Target, Zap, Medal, Smile } from 'lucide-react';
+import { Code, BookOpenCheck, Target, Zap, Medal, Smile } from 'lucide-react';
 
 const containerVariants = {
   hidden: {},

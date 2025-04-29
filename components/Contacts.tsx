@@ -30,7 +30,7 @@ const Contact = () => {
       } else {
         setStatus('Something went wrong. Please try again.');
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus('Error sending message. Please try again.');
     }
   };
@@ -38,7 +38,7 @@ const Contact = () => {
   return (
     <section id="contact">
       <div className="container px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-black/85 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-black/85 text-center">
           Connect With Me <span className="text-6xl sm:text-7xl md:text-8xl text-orange-400 mb-4">.</span>
         </h2>
 
@@ -46,7 +46,7 @@ const Contact = () => {
           {/* Left Column: Image */}
           <div className="relative w-full h-80 sm:h-96 md:h-full">
             <Image
-              src="/assets/contact.png"  // Replace with your actual image path
+              src="/assets/contact.png"
               alt="Contact Image"
               layout="fill"
               objectFit="cover"
@@ -56,8 +56,8 @@ const Contact = () => {
 
           {/* Right Column: Contact Form */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold ">Let's work together!</h3>
-            <p className="text-lg">             
+            <h3 className="text-2xl font-semibold ">Let&apos;s work together!</h3>
+            <p className="text-lg">
               Feel free to reach out for collaborations, inquiries, or just to say hi! I would love to hear from you.
             </p>
 
@@ -71,7 +71,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full p-3 mt-2 text-[1.1rem] bg-orange-50 text-orange-400  rounded-lg focus:outline-none "
+                  className="w-full p-3 mt-2 text-[1.1rem] bg-orange-50 text-orange-400 rounded-lg focus:outline-none"
                   placeholder="Your Name"
                   required
                 />
@@ -85,7 +85,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full p-3 mt-2 text-[1.1rem] bg-orange-50 text-orange-400   rounded-lg focus:outline-none"
+                  className="w-full p-3 mt-2 text-[1.1rem] bg-orange-50 text-orange-400 rounded-lg focus:outline-none"
                   placeholder="Your Email"
                   required
                 />
@@ -98,7 +98,7 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full p-3 mt-2 text-[1.1rem] bg-orange-50 text-orange-400  rounded-lg focus:outline-none"
+                  className="w-full p-3 mt-2 text-[1.1rem] bg-orange-50 text-orange-400 rounded-lg focus:outline-none"
                   placeholder="Your Message"
                   required
                 />

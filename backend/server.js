@@ -1,59 +1,93 @@
-// server.js
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 
-dotenv.config(); // Load environment variables from .env file
+// Load environment variables with explicit path
+dotenv.config({ path: '.env' });
+
+// Verify environment variables are loaded
+console.log("Checking environment variables...");
+console.log("EMAIL_USER:", process.env.EMAIL_USER ? " Loaded" : " Missing");
+console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? " Loaded" : " Missing");
+console.log("PORT:", process.env.PORT || 5000);
+
+// Exit if credentials are missing
+if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+  console.error("Critical: Email credentials missing in .env file");
+  process.exit(1);
+}
 
 const app = express();
-const port = 5000; // match your frontend
+const port = process.env.PORT || 5000;
 
-app.use(cors());
+// Enhanced CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3000', // Your frontend URL
+  methods: ['POST', 'OPTIONS'],
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
-// Create transporter (using Gmail SMTP)
+// Email transporter setup with verification
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,  // your gmail address
-    pass: process.env.EMAIL_PASS,  // your app password (not your normal gmail password!)
-  },
-});
-
-// Routes
-app.get('/', (req, res) => { 
-    res.send('Server is running!');
-});
-
-app.post('/api/contact', async (req, res) => {
-  const { name, email, message } = req.body;
-
-  // Check if required fields are provided
-  if (!name || !email || !message) {
-    return res.status(400).json({ message: 'All fields are required.' });
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
+});
 
-  const mailOptions = {
-    from: email, // sender
-    to: process.env.EMAIL_USER, // your email address
-    subject: 'New Contact Form Message', // default subject
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // the body of the email
-  };
+// Verify transporter connection
+transporter.verify((error) => {
+  if (error) {
+    console.error(' Mail transporter verification failed:', error);
+  } else {
+    console.log('Mail transporter is ready');
+  }
+});
 
+// Contact endpoint
+app.post('/api/contact', async (req, res) => {
+  console.log("Received contact form submission:", req.body);
+  
   try {
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    const mailOptions = {
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      replyTo: email,
+      subject: `New message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `
+    };
+
     await transporter.sendMail(mailOptions);
     console.log('Email sent successfully');
     res.status(200).json({ message: 'Message Sent!' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Error sending message. Please try again.' });
+    console.error('Email sending error:', error);
+    res.status(500).json({ 
+      message: 'Error sending message',
+      error: error.message 
+    });
   }
 });
 
-
 // Start server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+  console.log(`\n Server running at http://localhost:${port}`);
+  console.log(`Configured to send emails from: ${process.env.EMAIL_USER}`);
 });

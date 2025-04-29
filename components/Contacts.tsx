@@ -15,8 +15,14 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('Sending...');
+    
+    // Determine the API URL based on the environment
+    const apiUrl = process.env.NEXT_PUBLIC_VERCEL_URL 
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/contact`
+      : 'http://localhost:5000/api/contact';
+
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,8 +56,7 @@ const Contact = () => {
               alt="Contact Image"
               layout="fill"
               objectFit="cover"
-              className=""
-            />
+              className=""/>
           </div>
 
           {/* Right Column: Contact Form */}

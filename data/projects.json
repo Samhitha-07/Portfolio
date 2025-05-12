@@ -1,57 +1,95 @@
 [
-    {
-      "title": "Real-Time Twitter Sentiment Analysis",
-      "description": "Built a real-time sentiment analysis pipeline using Azure Event Hub, Apache Kafka, and Spark.",
-      "tech": ["Azure", "Kafka", "Spark", "Power BI"],
-      "github": "https://github.com/yourusername/project1",
-      "demo": "https://yourprojectdemo.com",
-      "image": "/assets/white.png",
-      "category": "Data Analyst"
-    },
-    {
-      "title": "Speech Emotion Recognition",
-      "description": "Compared SVM and DCNN models for detecting emotions from speech using the SAVEE dataset.",
-      "tech": ["Python", "TensorFlow", "OpenSMILE"],
-      "github": "https://github.com/yourusername/project2",
-      "demo": "https://yourprojectdemo.com",
-      "image": "/assets/white.png",
-      "category": "ML-DL"
-    },
-    {
-      "title": "LLM-based Chatbot",
-      "description": "Built a chatbot using RAG techniques with LangChain and OpenAI models.",
-      "tech": ["LangChain", "FAISS", "OpenAI"],
-      "github": "https://github.com/yourusername/project3",
-      "demo": "https://yourprojectdemo.com",
-      "image": "/assets/white.png",
-      "category": "LLM-RAG"
-    },
-    {
-        "title": "LLM-based Chatbot",
-        "description": "Built a chatbot using RAG techniques with LangChain and OpenAI models.",
-        "tech": ["LangChain", "FAISS", "OpenAI"],
-        "github": "https://github.com/yourusername/project3",
-        "demo": "https://yourprojectdemo.com",
-        "image": "/assets/white.png",
-        "category": "LLM-RAG"
-    },
-    {
-      "title": "Personal Portfolio Website",
-      "description": "Designed and developed a soft pastel-themed portfolio website using Next.js and Tailwind CSS.",
-      "tech": ["Next.js", "Tailwind CSS", "Framer Motion"],
-      "github": "https://github.com/yourusername/project4",
-      "demo": "https://yourprojectdemo.com",
-      "image": "/assets/white.png",
-      "category": "Web Design"
-    },
-    {
-        "title": "Personal Portfolio Website",
-        "description": "Designed and developed a soft pastel-themed portfolio website using Next.js and Tailwind CSS.",
-        "tech": ["Next.js", "Tailwind CSS", "Framer Motion"],
-        "github": "https://github.com/yourusername/project4",
-        "demo": "https://yourprojectdemo.com",
-        "image": "/assets/white.png",
-        "category": "Web Design"
-    }
-  ]
-  
+  {
+    "title": "Speech Emotion Recognition",
+    "description": "Compared SVM and DCNN models on the SAVEE dataset for detecting and classifying speech-based emotions.",
+    "tech": ["Python", "TensorFlow", "OpenSMILE"],
+    "github": "https://github.com/Samhitha-07/SpeechEmotionRecognition",
+    "image": "/assets/SER.png",
+    "category": "AI-ML"
+  },
+  {
+    "title": "PersonaAI - LLM Chatbot",
+    "description": "Developed a Streamlit-based chatbot using Ollama, Streamlit, and OpenAI for RAG-based conversational intelligence.",
+    "tech": ["Python", "Llama3","Streamlit"],
+    "github": "https://github.com/Samhitha-07/PersonaAI",
+    "image": "/assets/PersonaAI.png",
+    "category": "AI-ML"
+  },
+  {
+    "title": "Agentic RAG Chatbot",
+    "description": "Created a Domain-focused chatbot using LangChain and OpenAI to answer queries with RAG architecture.",
+    "tech": ["Groq","Tavily", "OpenAI", "Streamlit"],
+    "github": "https://github.com/Samhitha-07/Aether",
+    "image": "/assets/Aether.png",
+    "category": "AI-ML"
+  },
+  {
+    "title": "Personal Portfolio Website",
+    "description": "Designed a pastel-themed portfolio using Next.js with smooth animations and responsive layout for all devices.",
+    "tech": ["Next.js", "Tailwind CSS", "Framer Motion"],
+    "github": "https://github.com/Samhitha-07/Portfolio",
+    "demo": "https://portfolio-new-git-master-samhitha-07s-projects.vercel.app",
+    "image": "/assets/Portfolio.png",
+    "category": "Web Design"
+  },
+  {
+    "title": "IETE Official Website",
+    "description": "Built and deployed the IETE chapter’s official site with Firebase, featuring clean UI and mobile responsiveness.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "github": "https://github.com/IETEAmritaChapter/IETE-AmritaSF-Website",
+    "demo": "https://yourprojectdemo.com",
+    "image": "/assets/Iete.png",
+    "category": "Web Design"
+  },
+  {
+    "title": "3DOF Robotic Arm using KAN",
+    "description": "Implemented inverse kinematics on a 3DOF arm using Kolmogorov-Arnold Networks and visualized results in Python.",
+    "tech": ["Python", "KAN", "SCSS"],
+    "github": "https://github.com/Samhitha-07/3DOF-Robotic-Arm-using-KAN",
+    "demo": "https://3-dof-robotic-arm-using-kan.vercel.app",
+    "image": "/assets/Robot KAN.png",
+    "category": "AI-ML"
+  },
+  {
+    "title": "ML Data Visualizer",
+    "description": "Built an interactive app to visualize datasets and ML model metrics using Streamlit and Matplotlib plots.",
+    "tech": ["Streamlit", "Python", "scikit-learn"],
+    "github": "https://github.com/Samhitha-07/Auto-ML-Data-Visualizer",
+    "image": "/assets/auto ml.png",
+    "category": "AI-ML"
+  },
+  {
+    "title": "File Transfer using Merkle Tree",
+    "description": "Developed a secure file sharing app using Flask and Merkle Trees to ensure data integrity and privacy.",
+    "tech": ["Python", "Flask", "DSA"],
+    "github": "https://github.com/Samhitha-07/file-transfer-merkle-root",
+    "image": "/assets/merkle tree.png",
+    "category": "AI-ML"
+  },
+  {
+    "title": "Burnt Brotta",
+    "description": "Created a recipe-sharing platform with animations, clean design, with dynamic content delivery.",
+    "tech": ["HTML", "JavaScript", "CSS"],
+    "github": "https://github.com/Samhitha-07/burntbrotta.github.io",
+    "demo": "https://burntbrotta-github-io.vercel.app/",
+    "image": "/assets/burnt brotta.png",
+    "category": "Web Design"
+  },
+  {
+    "title": "Flutter Weather App",
+    "description": "Designed a real-time weather app in Flutter using Lottie animations and OpenWeatherMap API for forecasts.",
+    "tech": ["Flutter", "Dart", "OpenWeatherMap API"],
+    "github": "https://github.com/Samhitha-07/WeatherApp",
+    "image": "/assets/weather app.png",
+    "category": "Web Design"
+  },
+  {
+    "title": "Aura-Hour",
+    "description": "Built an e-commerce frontend with product filtering, smooth UI, and Tailwind + Material UI components.",
+    "tech": ["React.js", "Tailwind CSS", "Node.js"],
+    "github": "https://github.com/Samhitha-07/aura-hour",
+    "demo": "https://aura-hour-new.vercel.app",
+    "image": "/assets/aura_hour.png",
+    "category": "Web Design"
+  }
+]

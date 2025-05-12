@@ -76,7 +76,7 @@ const About = () => {
             <li>Build ethical ML models</li>
             <li>Open-source contributions</li>
             <li>Creative coding in AI</li>
-            <li>Lead impactful tech communities</li>
+            <li>To be a part of impactful tech communities</li>
           </ul>
         </motion.div>
       </div>
@@ -105,8 +105,8 @@ const About = () => {
           Ethical Innovation",
   achievements: ["Speaker", "Mentor", 
                  "Researcher"],
-  vibe: "Soft tech. Cool mind. Big 
-        heart. Dream chaser",
+  vibe: "Soft tech. Cool mind. 
+        Dream chaser",
   values: ["Empathy", "Curiosity", 
           "Community", "Growth"]
 };`}
@@ -152,7 +152,7 @@ const About = () => {
             <li>Google Gen AI Certification</li>
             <li>Published Paper on Robotics (KAN vs MLP)</li>
             <li>ISTE Workshop Host - Embedded Systems</li>
-            <li>E-commerce Website with AI</li>
+            <li>Frontend E-commerce Website  </li>
             <li>ML Bootcamp Mentor</li>
             <li>GirlUp Events Coordinator</li>
             <li>RCAAI Conference Presenter (2024)</li>

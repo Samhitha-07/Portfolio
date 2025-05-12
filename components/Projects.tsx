@@ -2,8 +2,14 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup } from 'framer-motion';
 import projectData from '../data/projects.json';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 type Project = {
   image: string;
@@ -12,36 +18,22 @@ type Project = {
   tech: string[];
   github?: string;
   demo?: string;
-  category: 'ML-DL' | 'LLM-RAG' | 'Data Analyst' | 'Web Design';
+  category: 'AI-ML' | 'Web Design';
 };
 
-const projects: Project[] = projectData as Project[]; // ✅ Type assertion
-
-const categories = ['All', 'ML-DL', 'LLM-RAG', 'Data Analyst', 'Web Design'];
+const projects: Project[] = projectData as Project[];
+const categories = ['All', 'AI-ML', 'Web Design'];
 
 const Projects = () => {
-  const [visibleCards, setVisibleCards] = useState<number>(0);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const filteredProjects = selectedCategory === 'All'
-    ? projects
-    : projects.filter((project) => project.category === selectedCategory);
+  const filteredProjects =
+    selectedCategory === 'All'
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    setVisibleCards(0);
-
-    if (category === 'All') {
-      let index = 0;
-      const interval = setInterval(() => {
-        index++;
-        setVisibleCards(index);
-        if (index === projects.length) clearInterval(interval);
-      }, 150);
-    } else {
-      const filtered = projects.filter((project) => project.category === category);
-      setVisibleCards(filtered.length);
-    }
   };
 
   return (
@@ -52,11 +44,16 @@ const Projects = () => {
         </h2>
 
         {/* Category Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mt-6 mb-6">
+        <motion.div
+          layout
+          className="flex flex-wrap justify-center gap-3 mt-6 mb-6"
+        >
           {categories.map((category) => (
-            <button
+            <motion.button
               key={category}
               onClick={() => handleCategoryChange(category)}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
               className={`px-4 py-2 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-orange-400 text-white'
@@ -64,27 +61,45 @@ const Projects = () => {
               }`}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Projects Grid */}
+        {/* Swiper for Projects */}
         <LayoutGroup>
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 mt-6 md:mt-8 gap-6 md:gap-8 lg:gap-10"
-          >
-            <AnimatePresence>
+          <div className="relative">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              navigation={{
+                nextEl: '.custom-swiper-button-next',
+                prevEl: '.custom-swiper-button-prev',
+              }}
+              pagination={{
+                clickable: true,
+                el: '.custom-swiper-pagination',
+              }}
+              loop={true}
+              grabCursor={true}
+              className="px-6 md:px-12"
+            >
               {filteredProjects.map((project, index) => (
-                index < visibleCards && (
+                <SwiperSlide key={`${project.title}-${index}`}>
                   <motion.div
-                    key={`${project.title}-${index}`}  // Combining title and index for uniqueness
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.5 }}
-                    className="bg-black/80 rounded-xl md:rounded-2xl p-4 md:p-6 hover:shadow-xl md:hover:shadow-2xl"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    viewport={{ once: true }}
+                    className="bg-black/80 rounded-xl md:rounded-2xl p-4 md:p-6 hover:shadow-xl md:hover:shadow-2xl h-full"
                   >
                     <div className="mb-3 md:mb-4 relative h-48 sm:h-52 md:h-56 w-full">
                       <Image
@@ -118,7 +133,7 @@ const Projects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm md:text-base text-orange-400 hover:italic font-semibold"
+                          className="text-sm md:text-base text-orange-400 hover:underline hover:italic font-semibold transition-all"
                         >
                           GitHub
                         </a>
@@ -128,19 +143,47 @@ const Projects = () => {
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm md:text-base text-orange-400 hover:italic font-semibold"
+                          className="text-sm md:text-base text-orange-400 hover:underline hover:italic font-semibold transition-all"
                         >
                           Live Demo
                         </a>
                       )}
                     </div>
                   </motion.div>
-                )
+                </SwiperSlide>
               ))}
-            </AnimatePresence>
-          </motion.div>
+            </Swiper>
+
+            {/* Custom Navigation Buttons */}
+            <div className="custom-swiper-button-prev absolute left-[-50px] sm:left-[-60px] top-1/2 z-10 -translate-y-1/2 transform cursor-pointer rounded-full bg-black p-3 text-white shadow-lg transition-all hover:bg-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
+            <div className="custom-swiper-button-next absolute right-[-50px] sm:right-[-60px] top-1/2 z-10 -translate-y-1/2 transform cursor-pointer rounded-full bg-black p-3 text-white shadow-lg transition-all hover:bg-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            {/* Custom Pagination */}
+            <div className="custom-swiper-pagination mt-8 flex justify-center gap-2" />
+          </div>
         </LayoutGroup>
       </div>
+
+      {/* Swiper Custom Styles */}
+      <style jsx global>{`
+        .custom-swiper-pagination .swiper-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background: #d1d5db;
+          opacity: 1;
+        }
+        .custom-swiper-pagination .swiper-pagination-bullet-active {
+          background: #f97316;
+        }
+      `}</style>
     </section>
   );
 };

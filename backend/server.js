@@ -25,7 +25,8 @@ const port = process.env.PORT || 5000;
 // Enhanced CORS configuration
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://portfolio-5k3f.vercel.app'
+  'https://portfolio-5k3f.vercel.app',
+  'https://portfolio-new-git-master-samhitha-07s-projects.vercel.app'
 ];
 
 app.use(cors({

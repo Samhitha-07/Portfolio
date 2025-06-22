@@ -17,9 +17,7 @@ const Contact = () => {
     setStatus('Sending...');
     
     // Determine the API URL based on the environment
-    const apiUrl = process.env.NEXT_PUBLIC_VERCEL_URL 
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/contact`
-      : 'http://localhost:5000/api/contact';
+    const apiUrl = 'https://portfolio-7vyu.onrender.com/api/contact';
 
     try {
       const response = await fetch(apiUrl, {
